@@ -1,0 +1,51 @@
+.header {
+  width: 100%;
+  height: 60px;
+  mix-blend-mode: difference;
+  position: relative;
+  z-index: 100;
+}
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo_img {
+  width: 120px;
+  height: 30px;
+  position: relative;
+}
+.menuBtn {
+  width: 25px;
+  height: 18px;
+  border-radius: 5px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menubar {
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.menubar1 {
+}
+.menubar2 {
+  width: 80%;
+}
+.menubar3 {
+  width: 60%;
+}
+.menubar1_active {
+  transform: translate(0px, 7px) rotate(45deg);
+}
+.menubar2_active {
+  opacity: 0;
+}
+.menubar3_active {
+  transform: translate(0px, -7.9px) rotate(-45deg);
+}
