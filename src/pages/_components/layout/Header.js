@@ -1,7 +1,7 @@
 import React, { useState, useLayoutEffect, useRef, useEffect } from "react";
 import Nav from "./Nav";
 import Image from "next/image";
-import logo from "public/imgs/logo.png";
+import Logo from "public/imgs/logo.svg";
 import styles from "src/styles/layout/header.module.css";
 import Link from "next/link";
 import gsap from "gsap";
@@ -17,19 +17,35 @@ function Header(props) {
   useEffect(() => {
     let ctx = gsap.context(() => {
       const tl = gsap.timeline({ paused: true });
-      gsap.set(textRef.current, {
-        xPercent: -50,
-        opacity: 0,
-      });
-      tl.to(navRef.current, {
-        clipPath: "circle(100% at 50% 50%)",
-      }).to(textRef.current, {
-        xPercent: 0,
-        opacity: 1,
-        stagger: {
-          amount: 0.3,
+      // gsap.set(textRef.current, {
+      //   xPercent: -50,
+      //   opacity: 0,
+      // });
+      tl.fromTo(
+        navRef.current,
+        {
+          clipPath: "circle(0% at 50% 50%)",
         },
-      });
+        {
+          clipPath: "circle(100% at 50% 50%)",
+        }
+      ).fromTo(
+        textRef.current,
+        {
+          xPercent: -50,
+          opacity: 0,
+          stagger: {
+            amount: 0.3,
+          },
+        },
+        {
+          xPercent: 0,
+          opacity: 1,
+          stagger: {
+            amount: 0.3,
+          },
+        }
+      );
 
       menu ? tl.play() : tl.reverse();
     }); //
@@ -43,13 +59,7 @@ function Header(props) {
         <div className={`${styles.container} container`}>
           <div className={styles.logo}>
             <Link href="/">
-              <Image
-                className={styles.logo_img}
-                src={logo}
-                width="100%"
-                height="100%"
-                alt="fluate_logo"
-              ></Image>
+              <Logo />
             </Link>
           </div>
           <div className={styles.menuBtn} onClick={menuHandler}>

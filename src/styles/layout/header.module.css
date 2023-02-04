@@ -11,10 +11,8 @@
   align-items: center;
   justify-content: space-between;
 }
-.logo_img {
+.logo svg {
   width: 120px;
-  height: 30px;
-  position: relative;
 }
 .menuBtn {
   width: 25px;

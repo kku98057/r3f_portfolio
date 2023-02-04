@@ -31,3 +31,6 @@ ul,
 li {
   list-style: none;
 }
+svg {
+  width: 100%;
+}
